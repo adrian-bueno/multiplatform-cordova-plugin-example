@@ -1,2 +1,4 @@
 node_modules
 .gradle
+Carthage
+.DS_Store

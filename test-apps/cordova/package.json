@@ -13,10 +13,11 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@hca/cordova-plugin-tappy": "file:../../packages/cordova-plugin-tappy",
     "cordova": "^10.0.0",
     "cordova-android": "^9.1.0",
     "cordova-electron": "^3.0.0",
+    "cordova-ios": "^6.2.0",
+    "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-example": "file:../../packages/cordova-plugin-example",
     "cordova-plugin-whitelist": "^1.3.5"
   },
@@ -27,7 +28,8 @@
     },
     "platforms": [
       "android",
-      "electron"
+      "electron",
+      "ios"
     ]
   },
   "dependencies": {

@@ -4,7 +4,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<name>CordovaPluginExample</name>
-  <description>Cordova plugin example</description>
+  	<description>Cordova plugin example</description>
 	<license>MIT-0</license>
 	<keywords>cordova, example, multiplatform, android, ios, electron</keywords>
 
@@ -27,6 +27,7 @@
 		</config-file>
 
 		<source-file src="src/android/CordovaPluginExample.java" target-dir="src/com/cordova/plugin/example" />
+    <source-file src="src/android/WriteFileHelper.java" target-dir="src/com/cordova/plugin/example" />
 
     <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
 
@@ -40,5 +41,53 @@
 		</config-file>
 		<source-file src="src/ios/CordovaPluginExample.m" />
 	</platform> -->
+
+  <!-- ios -->
+  <platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="CordovaPluginExample">
+				<param name="ios-package" value="CordovaPluginExample"/>
+			</feature>
+		</config-file>
+
+		<!-- <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+		<string>Necesario para realizar el reconocimiento de voz.</string>
+		</config-file> -->
+
+		<!-- <config-file target="*-Info.plist" parent="NSSpeechRecognitionUsageDescription">
+			<string>Necesario para realizar el reconocimiento de voz.</string>
+		</config-file> -->
+
+		<config-file target="*-Info.plist" parent="UIFileSharingEnabled">
+			<true/>
+		</config-file>
+
+		<config-file target="*-Info.plist" parent="LSSupportsOpeningDocumentsInPlace">
+			<true/>
+		</config-file>
+
+		<!-- <header-file src="src/ios/Watson-Bridging-Header.h" /> -->
+		<source-file src="src/ios/CordovaPluginExample.swift"/>
+		<source-file src="src/ios/CallbackHelper.swift"/>
+		<!-- <source-file src="src/ios/SpeechToTextV1" target="src/"/> -->
+
+		<framework src="Speech.framework"/>
+		<!-- <framework src="src/ios/Carthage/Build/Alamofire.xcframework" custom="true" embed="true"/> -->
+
+    	<!-- <framework src="Alamofire" type="podspec" spec="~> 5.5" /> -->
+
+		<podspec>
+			<config>
+				<source url="https://github.com/CocoaPods/Specs.git"/>
+			</config>
+			<pods use-frameworks="true">
+				<pod name="Alamofire" spec="~> 5.5" />
+				<!-- <pod name="Alamofire" options=":git => 'https://github.com/Alamofire/Alamofire.git', :tag => '5.5.0'" /> -->
+				<!-- <pod name="Alamofire" git="https://github.com/Alamofire/Alamofire.git" tag="5.5.0" /> -->
+			</pods>
+		</podspec>
+
+		<dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
+	</platform>
 
 </plugin>

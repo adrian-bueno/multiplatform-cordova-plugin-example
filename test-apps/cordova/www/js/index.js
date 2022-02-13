@@ -57,8 +57,8 @@ function onDeviceReady() {
       .catch(error => console.error(error));
 
     bitcoinCurrentPrice()
-      .then((res) => console.log(res))
-      .catch((error) => console.error(error));
+       .then((res) => console.log(res))
+       .catch((error) => console.error(error));
 
     setTimeout(() => countdownTimer(12), 5000);
 

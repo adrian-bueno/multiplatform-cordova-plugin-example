@@ -111,7 +111,7 @@ public class CordovaPluginExample extends CordovaPlugin {
     } catch (IOException | JSONException e) {
       Log.e(TAG, e.getMessage());
       e.printStackTrace();
-      callbackContext.error("IOException");
+      callbackContext.error("REQUEST_ERROR");
     }
   }
 
