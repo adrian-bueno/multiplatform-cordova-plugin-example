@@ -1,0 +1,8 @@
+{
+    "browserWindow": {
+        "webPreferences": {
+            "nodeIntegration": false
+        },
+        "width": 1500
+    }
+}

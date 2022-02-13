@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-example" version="1.0.0"
+	xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<name>CordovaPluginExample</name>
+  <description>Cordova plugin example</description>
+	<license>MIT-0</license>
+	<keywords>cordova, example, multiplatform, android, ios, electron</keywords>
+
+  <!-- www -->
+	<js-module name="CordovaPluginExample" src="www/CordovaPluginExample.js">
+		<clobbers target="cordova.plugins.CordovaPluginExample" />
+	</js-module>
+
+  <!-- android -->
+	<platform name="android">
+
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="CordovaPluginExample">
+				<param name="android-package" value="com.cordova.plugin.example.CordovaPluginExample" />
+			</feature>
+		</config-file>
+
+    <config-file parent="/*" target="AndroidManifest.xml">
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+		</config-file>
+
+		<source-file src="src/android/CordovaPluginExample.java" target-dir="src/com/cordova/plugin/example" />
+
+    <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+
+	</platform>
+
+	<!-- <platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="CordovaPluginExample">
+				<param name="ios-package" value="CordovaPluginExample" />
+			</feature>
+		</config-file>
+		<source-file src="src/ios/CordovaPluginExample.m" />
+	</platform> -->
+
+</plugin>
