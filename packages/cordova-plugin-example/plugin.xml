@@ -90,4 +90,9 @@
 		<dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
 	</platform>
 
+  <!-- Electron -->
+	<platform name="electron">
+    <framework src="src/electron"/>
+	</platform>
+
 </plugin>

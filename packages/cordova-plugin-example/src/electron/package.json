@@ -1,0 +1,11 @@
+{
+    "name": "cordova-plugin-example",
+    "version": "0.0.0",
+    "main": "CordovaPluginExample.js",
+    "cordova": {
+        "serviceName": "CordovaPluginExample"
+    },
+    "dependencies": {
+        "axios": "^0.26.0"
+    }
+}
