@@ -9,10 +9,29 @@ function greeting([args]) {
   return name ? `Hello ${name}!` : "Hello!";
 }
 
-function countdownTimer([args]) {
-  // Not possible to implement it with cordova-electron 3.0.0
-  // const [seconds] = args;
-  throw "NOT_IMPLEMENTED";
+// function countdownTimer([args]) {
+//   // Not possible to implement it with cordova-electron 3.0.0
+//   // const [seconds] = args;
+//   throw "NOT_IMPLEMENTED";
+// }
+
+// This feature is not oficial yet, use my fork:
+// github:adrian-bueno/cordova-electron#feature/keep-callback
+function countdownTimer$(success, error, args) {
+  const [seconds] = args;
+
+  let secondsLeft = seconds > 0 ? seconds : 10;
+
+  function startInterval() {
+    const keepCallback = secondsLeft > 0;
+    success(secondsLeft, keepCallback);
+    if (keepCallback) {
+      secondsLeft--;
+      setTimeout(startInterval, 1000);
+    }
+  }
+
+  startInterval();
 }
 
 function writeFile([args]) {
@@ -46,7 +65,8 @@ async function bitcoinCurrentPrice() {
 
 module.exports = {
   greeting,
-  countdownTimer,
+  // countdownTimer,
+  countdownTimer$,
   writeFile,
   bitcoinCurrentPrice,
 };

@@ -15,7 +15,7 @@
   "devDependencies": {
     "cordova": "^10.0.0",
     "cordova-android": "^9.1.0",
-    "cordova-electron": "^3.0.0",
+    "cordova-electron": "github:adrian-bueno/cordova-electron#feature/keep-callback",
     "cordova-ios": "^6.2.0",
     "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-example": "file:../../packages/cordova-plugin-example",
@@ -28,8 +28,8 @@
     },
     "platforms": [
       "android",
-      "electron",
-      "ios"
+      "ios",
+      "electron"
     ]
   },
   "dependencies": {
