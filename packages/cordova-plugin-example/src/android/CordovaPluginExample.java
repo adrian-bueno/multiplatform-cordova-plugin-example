@@ -55,15 +55,15 @@ public class CordovaPluginExample extends CordovaPlugin {
 
   private void greeting(final CallbackContext callbackContext, final JSONArray args) throws JSONException {
     String response = (args.isNull(0))
-        ? "Hello!"
-        : "Hello " + args.getString(0) + "!";
+      ? "Hello!"
+      : "Hello " + args.getString(0) + "!";
     callbackContext.success(response);
   }
 
   private void countdownTimer(final CallbackContext callbackContext, final JSONArray args) throws JSONException {
     final Integer seconds = (!args.isNull(0) && args.getInt(0) > 0)
-        ? args.getInt(0)
-        : 10;
+      ? args.getInt(0)
+      : 10;
 
     Handler handler = new Handler(Looper.getMainLooper());
 
@@ -102,8 +102,8 @@ public class CordovaPluginExample extends CordovaPlugin {
 
   private void bitcoinCurrentPrice(final CallbackContext callbackContext) {
     Request request = new Request.Builder()
-        .url("https://api.coindesk.com/v1/bpi/currentprice.json")
-        .build();
+      .url("https://api.coindesk.com/v1/bpi/currentprice.json")
+      .build();
 
     try (Response response = http.newCall(request).execute()) {
       JSONObject jsonObject = new JSONObject(response.body().string());

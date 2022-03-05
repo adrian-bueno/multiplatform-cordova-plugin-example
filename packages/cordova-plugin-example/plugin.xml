@@ -4,7 +4,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<name>CordovaPluginExample</name>
-  	<description>Cordova plugin example</description>
+  <description>Cordova plugin example</description>
 	<license>MIT-0</license>
 	<keywords>cordova, example, multiplatform, android, ios, electron</keywords>
 
@@ -29,18 +29,10 @@
 		<source-file src="src/android/CordovaPluginExample.java" target-dir="src/com/cordova/plugin/example" />
     <source-file src="src/android/WriteFileHelper.java" target-dir="src/com/cordova/plugin/example" />
 
-    <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+    <framework src="com.squareup.okhttp3:okhttp:4.9.0" />
+    <!-- <framework src="src/android/build.gradle" custom="true" type="gradleReference" /> -->
 
 	</platform>
-
-	<!-- <platform name="ios">
-		<config-file parent="/*" target="config.xml">
-			<feature name="CordovaPluginExample">
-				<param name="ios-package" value="CordovaPluginExample" />
-			</feature>
-		</config-file>
-		<source-file src="src/ios/CordovaPluginExample.m" />
-	</platform> -->
 
   <!-- ios -->
   <platform name="ios">
@@ -66,15 +58,12 @@
 			<true/>
 		</config-file>
 
-		<!-- <header-file src="src/ios/Watson-Bridging-Header.h" /> -->
 		<source-file src="src/ios/CordovaPluginExample.swift"/>
 		<source-file src="src/ios/CallbackHelper.swift"/>
 		<!-- <source-file src="src/ios/SpeechToTextV1" target="src/"/> -->
 
-		<framework src="Speech.framework"/>
+		<!-- <framework src="Speech.framework"/> -->
 		<!-- <framework src="src/ios/Carthage/Build/Alamofire.xcframework" custom="true" embed="true"/> -->
-
-    	<!-- <framework src="Alamofire" type="podspec" spec="~> 5.5" /> -->
 
 		<podspec>
 			<config>
