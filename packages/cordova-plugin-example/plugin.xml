@@ -42,13 +42,12 @@
 			</feature>
 		</config-file>
 
-		<!-- <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
-		<string>Necesario para realizar el reconocimiento de voz.</string>
-		</config-file> -->
-
-		<!-- <config-file target="*-Info.plist" parent="NSSpeechRecognitionUsageDescription">
-			<string>Necesario para realizar el reconocimiento de voz.</string>
-		</config-file> -->
+    <!-- Example on how to add usage descriptions for special permissions -->
+		<!--
+    <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+		  <string>Explaing here why you need to use the microphone</string>
+		</config-file>
+    -->
 
 		<config-file target="*-Info.plist" parent="UIFileSharingEnabled">
 			<true/>
@@ -60,10 +59,11 @@
 
 		<source-file src="src/ios/CordovaPluginExample.swift"/>
 		<source-file src="src/ios/CallbackHelper.swift"/>
-		<!-- <source-file src="src/ios/SpeechToTextV1" target="src/"/> -->
+    <!-- Example on how to copy a directory inside src/ios instead of file by file -->
+		<!-- <source-file src="src/ios/<directory>" target="src/"/> -->
 
+    <!-- Example on how to use native iOS dependencies -->
 		<!-- <framework src="Speech.framework"/> -->
-		<!-- <framework src="src/ios/Carthage/Build/Alamofire.xcframework" custom="true" embed="true"/> -->
 
 		<podspec>
 			<config>

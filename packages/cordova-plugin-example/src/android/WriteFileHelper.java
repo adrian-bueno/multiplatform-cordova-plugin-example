@@ -93,8 +93,8 @@ public class WriteFileHelper {
     intent.putExtra(Intent.EXTRA_TITLE, fileName);
     intent.putExtra("text", text);
 
-    // Optionally, specify a URI for the directory that should be opened in
-    // the system file picker when your app creates the document.
+    // Optionally, specify a URI for the directory that should be opened by
+    // the system's file picker when your app creates the document.
     intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, "");
 
     intentCallbackContext = callbackContext;

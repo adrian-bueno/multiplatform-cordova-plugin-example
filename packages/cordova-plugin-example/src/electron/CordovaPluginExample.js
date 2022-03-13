@@ -22,16 +22,16 @@ function countdownTimer$(success, error, args) {
 
   let secondsLeft = seconds > 0 ? seconds : 10;
 
-  function startInterval() {
+  function startTimeout() {
     const keepCallback = secondsLeft > 0;
     success(secondsLeft, keepCallback);
     if (keepCallback) {
       secondsLeft--;
-      setTimeout(startInterval, 1000);
+      setTimeout(startTimeout, 1000);
     }
   }
 
-  startInterval();
+  startTimeout();
 }
 
 function writeFile([args]) {

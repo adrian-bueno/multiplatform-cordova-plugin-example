@@ -9,9 +9,6 @@
     "type": "git",
     "url": "<Your git repository>"
   },
-  "scripts": {
-    "postinstall": "node ./postinstall.js"
-  },
   "cordova": {
     "id": "cordova-plugin-example",
     "platforms": [

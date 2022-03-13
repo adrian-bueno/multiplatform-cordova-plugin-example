@@ -31,8 +31,5 @@
       "ios",
       "electron"
     ]
-  },
-  "dependencies": {
-    "hello-world-node-package": "^1.0.1"
   }
 }

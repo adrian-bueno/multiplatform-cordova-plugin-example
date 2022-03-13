@@ -16,7 +16,12 @@ exports.countdownTimer = function (successCallback, errorCallback, seconds) {
   exec(successCallback, errorCallback, PLUGIN_NAME, action, [seconds]);
 };
 
-// Writes a file in user's root directory
+// Writes a file in:
+// - iOS: App Documents directory
+// - Android:
+//   - (Android 9-) Phone Documents directory
+//   - (Android 10+) User can choose the directory
+// - Electron: User's Documents directory
 exports.writeFile = function (successCallback, errorCallback, fileName, text) {
   exec(successCallback, errorCallback, PLUGIN_NAME, 'writeFile', [fileName, text]);
 };
