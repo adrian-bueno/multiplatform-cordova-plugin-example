@@ -1,0 +1,42 @@
+{
+  "name": "awesome-cordova-plugins-example",
+  "version": "1.0.0",
+  "description": "Native plugin wrapper for cordova-plugin-example",
+  "scripts": {
+    "build:esm": "ts-node -P scripts/tsconfig.json scripts/tasks/build-esm",
+    "build:es5": "ts-node -P scripts/tsconfig.json scripts/tasks/build-es5",
+    "build:ngx": "ts-node -P scripts/tsconfig.json scripts/tasks/build-ngx",
+    "build:packagejson": "ts-node -P scripts/tsconfig.json scripts/tasks/build-packagejson",
+    "build": "npm run build:esm && npm run build:ngx && npm run build:es5 && npm run build:packagejson",
+    "prebuild": "rimraf -rf dist"
+  },
+  "peerDependencies": {
+    "@awesome-cordova-plugins/core": "^5.1.0",
+    "rxjs": "^5.5.0 || ^6.5.0"
+  },
+  "devDependencies": {
+    "@angular/common": "11.2.14",
+    "@angular/compiler": "11.2.14",
+    "@angular/compiler-cli": "11.2.14",
+    "@angular/core": "11.2.14",
+    "@awesome-cordova-plugins/core": "^5.41.0",
+    "@types/cordova": "0.0.34",
+    "@types/fs-extra": "9.0.13",
+    "@types/lodash": "4.14.181",
+    "@types/node": "16.11.26",
+    "@types/rimraf": "3.0.2",
+    "@types/webpack": "5.28.0",
+    "fs-extra": "10.0.1",
+    "lodash": "4.17.21",
+    "rimraf": "3.0.2",
+    "rollup": "2.70.1",
+    "rxjs": "6.6.7",
+    "terser-webpack-plugin": "5.3.1",
+    "ts-node": "10.7.0",
+    "typescript": "4.1.6",
+    "unminified-webpack-plugin": "3.0.0",
+    "webpack": "5.71.0",
+    "winston": "3.7.2",
+    "zone.js": "0.11.5"
+  }
+}

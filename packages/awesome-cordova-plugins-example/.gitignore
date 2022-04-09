@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+.idea
+.tmp
+aot/
+dist/
+src/@awesome-cordova-plugins/plugins/**/ngx
+*.d.ts
+injectable-classes.json
+
