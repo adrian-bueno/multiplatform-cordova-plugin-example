@@ -24,16 +24,22 @@ import java.nio.charset.StandardCharsets;
 
 public class WriteFileHelper {
 
+  // Code used with the create file Intent
   public static Integer CREATE_FILE_CODE = 1;
 
   private CordovaPlugin plugin;
   private CallbackContext intentCallbackContext;
   private String intentText;
 
+  // We need to pass as a parameter our main class to be
+  // able to access the main Android Activity later on
   public WriteFileHelper(CordovaPlugin plugin) {
     this.plugin = plugin;
   }
 
+  // This is the main method of this helper class
+  // We will have different implementations for
+  // Android 9 and lower and Android 10 and higher
   public void writeFile(final CallbackContext callbackContext, final JSONArray args) throws JSONException {
     if (args.isNull(0) || args.isNull(1)) {
       callbackContext.error("BAD_ARGS");
@@ -80,6 +86,10 @@ public class WriteFileHelper {
     }
   }
 
+  // For Android 10 and higher, we are going to create
+  // files using Android Intents.
+  // We will create the file with an Intent, and after
+  // the file is created we will write on it.
   // https://developer.android.com/training/data-storage/shared/documents-files#create-file
   @TargetApi(Build.VERSION_CODES.O)
   private void writeFileAndroid10AndHigher(
@@ -97,12 +107,18 @@ public class WriteFileHelper {
     // the system's file picker when your app creates the document.
     intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, "");
 
+    // We need to save the callbackContext and text
+    // to use it in onCreateFileActivityResult()
     intentCallbackContext = callbackContext;
     intentText = text;
+
     plugin.cordova.setActivityResultCallback(plugin);
     plugin.cordova.getActivity().startActivityForResult(intent, WriteFileHelper.CREATE_FILE_CODE);
   }
 
+  // This method handles the Intent result.
+  // It obtains the created file URI, open an OutputStream
+  // and write the text passed as parameter in the writeFile method
   public void onCreateFileActivityResult(int resultCode, Intent data) {
     if (resultCode == Activity.RESULT_OK) {
       try {

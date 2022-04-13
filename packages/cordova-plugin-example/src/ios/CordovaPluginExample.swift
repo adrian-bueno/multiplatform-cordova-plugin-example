@@ -10,18 +10,32 @@ import Alamofire
     NSLog("[CordovaPluginExample] %@", message)
   }
 
+  // This method will be called on Cordova initialization.
+  // Use it to initialize everything you may need later.
+  // In this example, we will initialize our CallbackHelper class.
   override func pluginInitialize() {
     log("Initializing Cordova plugin example");
     super.pluginInitialize()
     callbackHelper = CallbackHelper(self.commandDelegate!)
   }
 
+  // This is our simplest example.
+  // Returns the string "Hello {name}!"
+  // or "Hello!" if a name is not received.
   @objc(greeting:) func greeting(command: CDVInvokedUrlCommand) {
     let name = command.arguments[0] as? String ?? ""
     let greeting = name.isEmpty ? "Hello!" : "Hello \(name)"
     callbackHelper!.sendString(command, greeting)
   }
 
+  // Returns a number every second, from "seconds" parameter value to 0.
+  //
+  // With this example we will see how can we return
+  // multiple values over time, like an Observable.
+  //
+  // To return multiple values and keep the "connection"
+  // open, just set the parameter "keepCallback" of
+  // CallbackHelper methods to true
   @objc(countdownTimer:) func countdownTimer(command: CDVInvokedUrlCommand) {
     let seconds = command.arguments[0] as? Int ?? 10
     var secondsLeft = seconds > 0 ? seconds : 10
@@ -37,6 +51,8 @@ import Alamofire
     timer.fire()
   }
 
+  // With this method we can create and write
+  // a file in our app's Documents directory.
   @objc(writeFile:) func writeFile(command: CDVInvokedUrlCommand) {
     let fileName = command.arguments[0] as? String;
     let text = command.arguments[1] as? String;
@@ -58,6 +74,9 @@ import Alamofire
     }
   }
 
+  // This example is just to show how can we use
+  // the external dependencies we declared previously,
+  // in this case, Alomofire
   @objc(bitcoinCurrentPrice:) func bitcoinCurrentPrice(command: CDVInvokedUrlCommand) {
     let url = "https://api.coindesk.com/v1/bpi/currentprice.json"
     AF.request(url).responseString { response in

@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 // the Bitcoin current price response.
 // I don't know at this moment if we
 // can define this interfaces in different files.
-// I wasn't completely successful when I tried to do it.
+// I wasn't completely successful when I tried to
+// do it, at least with the 'build-ngx' script.
 
 export interface BPI {
   code: string;

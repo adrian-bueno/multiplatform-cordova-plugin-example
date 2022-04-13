@@ -30,6 +30,8 @@
     <source-file src="src/android/WriteFileHelper.java" target-dir="src/com/cordova/plugin/example" />
 
     <framework src="com.squareup.okhttp3:okhttp:4.9.0" />
+
+    <!-- Example on how to use a Gradle file for dependencies -->
     <!-- <framework src="src/android/build.gradle" custom="true" type="gradleReference" /> -->
 
 	</platform>
@@ -59,6 +61,7 @@
 
 		<source-file src="src/ios/CordovaPluginExample.swift"/>
 		<source-file src="src/ios/CallbackHelper.swift"/>
+
     <!-- Example on how to copy a directory inside src/ios instead of file by file -->
 		<!-- <source-file src="src/ios/<directory>" target="src/"/> -->
 
