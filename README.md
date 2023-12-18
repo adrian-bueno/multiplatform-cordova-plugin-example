@@ -3,8 +3,8 @@
 Cordova plugin for Android, iOS and Electron with multiple examples (not just a 'Hello World').
 
 **Read the tutorial at:**
-  - English: https://adridev.com/blog/multiplatform-cordova-plugin
-  - Español: https://adridev.com/es/blog/plugin-cordova-multiplataforma
+  - English: https://devadri.com/blog/multiplatform-cordova-plugin
+  - Español: https://devadri.com/es/blog/plugin-cordova-multiplataforma
 
 
 ## Code structure
