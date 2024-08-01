@@ -7,11 +7,7 @@ const axios = require("axios").default;
 // This is our simplest example.
 // Returns the string "Hello {name}!"
 // or "Hello!" if a name is not received.
-//
-// Arguments are received in an array with a
-// single item that is an array too. We could
-// use [args] to destructure the array.
-function greeting([args]) {
+function greeting(args) {
   const [name] = args;
   return name ? `Hello ${name}!` : "Hello!";
 }
@@ -20,7 +16,7 @@ function greeting([args]) {
 // NOT POSSIBLE TO IMPLEMENT IT WITH cordova-electron 3.0.0.
 // cordova-electron 3.0.0 doesn't support the keepCallback
 // functionality that is available in Android and iOS.
-function countdownTimer([args]) {
+function countdownTimer(args) {
   // const [seconds] = args;
   throw "NOT_IMPLEMENTED";
 }
@@ -55,7 +51,7 @@ function countdownTimer$(success, error, args) {
 }
 
 // Writes a file in the user's Documents folder.
-function writeFile([args]) {
+function writeFile(args) {
   const [fileName, text] = args;
 
   if (!fileName || !text) {
